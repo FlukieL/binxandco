@@ -189,7 +189,8 @@ img {
 /* Clients */
 .clients-section {
     background-color: #f9f9f9;
-    overflow: hidden;
+    overflow: visible;
+    position: relative;
 }
 
 .clients-category {
@@ -205,22 +206,84 @@ img {
 
 .marquee-container {
     width: 100%;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
     position: relative;
     padding: 20px 0;
     border-radius: 5px;
     margin-bottom: 15px;
+    cursor: grab;
+    scroll-behavior: smooth;
+    height: 620px;
+    overflow-y: clip;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.marquee-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.marquee-container::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+}
+
+.marquee-container::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 4px;
+}
+
+.marquee-container::-webkit-scrollbar-thumb:hover {
+    background: #2a3702;
+}
+
+.marquee-container:active {
+    cursor: grabbing;
 }
 
 .marquee-content {
     display: flex;
-    gap: 40px;
-    animation: scroll 160s linear infinite;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 30px;
+    row-gap: 30px;
+    animation: scroll 30s linear infinite;
     width: max-content;
+    align-content: flex-start;
+    align-items: flex-start;
+    will-change: transform;
+    animation-fill-mode: both;
+}
+
+/* Center content when it doesn't need scrolling */
+.marquee-container[data-needs-scroll="false"] {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow: visible;
+}
+
+.marquee-container[data-needs-scroll="false"] .marquee-content {
+    justify-content: center;
+    width: auto !important;
+    max-width: 100%;
+    margin: 0 auto;
+    flex-shrink: 0;
+}
+
+.marquee-container.brands-restaurants .marquee-content {
+    animation: scroll 40s linear infinite;
 }
 
 .marquee-container.reverse .marquee-content {
-    animation-direction: reverse;
+    animation: scroll-reverse 30s linear infinite;
+    animation-fill-mode: both;
+}
+
+.marquee-container[data-needs-scroll="false"] .marquee-content {
+    animation: none !important;
+    transform: translateX(0) !important;
 }
 
 .marquee-container:hover .marquee-content {
@@ -235,16 +298,35 @@ img {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    transition: all 0.3s ease;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     display: block;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
+    cursor: pointer;
+    margin-bottom: 0;
 }
 
-.client-item:hover {
-    transform: scale(1.05);
-    z-index: 10;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+.client-item.expanded,
+.client-item-expanded-clone {
+    width: 70vw !important;
+    max-width: 1000px !important;
+    height: auto !important;
+    max-height: 85vh !important;
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) scale(1) !important;
+    z-index: 1001 !important;
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.4) !important;
+    padding: 40px !important;
+    overflow-y: auto !important;
+    margin: 0 !important;
+    background: #fff !important;
+    border-radius: 10px !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
 }
 
 .client-item img {
@@ -253,23 +335,39 @@ img {
     object-fit: cover;
     border-radius: 5px;
     margin-bottom: 15px;
-    transition: opacity 0.3s ease;
+    transition: all 0.6s ease;
 }
 
-.client-item:hover img {
-    opacity: 0.3;
+.client-item.expanded img,
+.client-item-expanded-clone img {
+    height: auto !important;
+    max-height: 60vh !important;
+    width: 100% !important;
+    object-fit: contain !important;
+    opacity: 1 !important;
+    margin-bottom: 20px !important;
 }
+
 
 .client-item>span {
     font-weight: 600;
     color: var(--text-color);
     display: block;
     margin-bottom: 10px;
-    transition: opacity 0.3s ease;
+    transition: all 0.6s ease;
+    font-size: 1rem;
 }
 
-.client-item:hover>span {
-    opacity: 0;
+.client-item.expanded>span,
+.client-item-expanded-clone>span {
+    font-size: 2rem !important;
+    opacity: 1 !important;
+    margin-bottom: 0 !important;
+}
+
+/* Hide the name span when expanded (name is shown in h4 instead) */
+.client-item-expanded-clone>span:not(.visit-link) {
+    display: none !important;
 }
 
 .client-details {
@@ -284,10 +382,27 @@ img {
     text-align: center;
 }
 
-.client-item:hover .client-details {
-    opacity: 1;
-    pointer-events: auto;
+.client-item.expanded .client-details,
+.client-item-expanded-clone .client-details {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    width: 100% !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    margin-top: 20px !important;
+    text-align: center !important;
 }
+
+.client-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-color);
+    margin: 15px 0;
+    opacity: 0.9;
+}
+
 
 .client-details h4 {
     font-size: 1.2rem;
@@ -318,6 +433,36 @@ img {
     100% {
         transform: translateX(-50%);
     }
+}
+
+@keyframes scroll-reverse {
+    0% {
+        transform: translateX(-50%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* Overlay for expanded client items */
+.client-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(4px);
+}
+
+.client-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
 }
 
 /* Contact */
