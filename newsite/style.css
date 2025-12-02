@@ -601,4 +601,29 @@ footer::before {
     .contact-email {
         font-size: 1.5rem;
     }
+
+    /* Fix marquee containers on mobile - prevent vertical wrapping */
+    .marquee-container {
+        height: 350px !important;
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .marquee-content {
+        flex-wrap: nowrap !important;
+        height: 300px !important;
+    }
+
+    /* Ensure talent section doesn't create tall vertical list on mobile */
+    .marquee-container.reverse .marquee-content {
+        flex-wrap: nowrap !important;
+    }
+
+    /* Adjust client item size for mobile if needed */
+    .client-item {
+        width: 200px !important;
+        min-width: 200px !important;
+        flex-shrink: 0;
+    }
 }

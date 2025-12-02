@@ -222,38 +222,59 @@ document.addEventListener('DOMContentLoaded', () => {
         // Get the parent marquee-container for data attributes
         const marqueeContainer = container.closest('.marquee-container');
         
+        // Detect mobile viewport
+        const isMobile = window.innerWidth <= 768;
+        
         // Calculate dimensions
-        const itemWidth = 250;
+        const itemWidth = isMobile ? 200 : 250;
         const gap = 30;
         const itemHeight = 300;
         const rowGap = 30;
         
-        // Calculate how items will be distributed across exactly 2 rows
-        const totalItems = shuffled.length;
-        const itemsInFirstRow = Math.ceil(totalItems / 2);
-        const itemsInSecondRow = totalItems - itemsInFirstRow;
-        const maxItemsPerRow = Math.max(itemsInFirstRow, itemsInSecondRow);
-        
-        // Calculate width to fit max items per row - this ensures exactly 2 rows
-        // Add some extra width to ensure all items fit comfortably
-        const totalWidth = (maxItemsPerRow * itemWidth) + ((maxItemsPerRow - 1) * gap) + 50;
-        
-        // Calculate height for exactly 2 rows
-        const totalHeight = (2 * itemHeight) + rowGap;
-        
-        // Create all items (they will wrap into exactly 2 rows due to width constraint)
-        shuffled.forEach(client => {
-            html += createClientItemHTML(client);
-        });
-        
-        // Set container dimensions first to force wrapping
-        container.style.width = `${totalWidth}px`;
-        container.style.height = `${totalHeight}px`;
-        container.style.flexWrap = 'wrap';
-        container.style.display = 'flex';
-        container.style.overflow = 'visible';
-        container.style.flexDirection = 'row';
-        container.style.flexBasis = 'auto';
+        // On mobile, use single row horizontal scroll instead of 2 rows
+        if (isMobile) {
+            // Create all items in a single horizontal row
+            shuffled.forEach(client => {
+                html += createClientItemHTML(client);
+            });
+            
+            // Set container for single row horizontal scroll
+            const totalWidth = (shuffled.length * itemWidth) + ((shuffled.length - 1) * gap);
+            container.style.width = `${totalWidth}px`;
+            container.style.height = `${itemHeight}px`;
+            container.style.flexWrap = 'nowrap';
+            container.style.display = 'flex';
+            container.style.overflow = 'visible';
+            container.style.flexDirection = 'row';
+            container.style.flexBasis = 'auto';
+        } else {
+            // Desktop: Calculate how items will be distributed across exactly 2 rows
+            const totalItems = shuffled.length;
+            const itemsInFirstRow = Math.ceil(totalItems / 2);
+            const itemsInSecondRow = totalItems - itemsInFirstRow;
+            const maxItemsPerRow = Math.max(itemsInFirstRow, itemsInSecondRow);
+            
+            // Calculate width to fit max items per row - this ensures exactly 2 rows
+            // Add some extra width to ensure all items fit comfortably
+            const totalWidth = (maxItemsPerRow * itemWidth) + ((maxItemsPerRow - 1) * gap) + 50;
+            
+            // Calculate height for exactly 2 rows
+            const totalHeight = (2 * itemHeight) + rowGap;
+            
+            // Create all items (they will wrap into exactly 2 rows due to width constraint)
+            shuffled.forEach(client => {
+                html += createClientItemHTML(client);
+            });
+            
+            // Set container dimensions first to force wrapping
+            container.style.width = `${totalWidth}px`;
+            container.style.height = `${totalHeight}px`;
+            container.style.flexWrap = 'wrap';
+            container.style.display = 'flex';
+            container.style.overflow = 'visible';
+            container.style.flexDirection = 'row';
+            container.style.flexBasis = 'auto';
+        }
         
         // Render initial content
         container.innerHTML = html;
