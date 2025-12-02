@@ -1,0 +1,146 @@
+{
+  "brandsAndRestaurants": [
+    {
+      "name": "Wing Fest",
+      "image": "assets/Wing-Fest-600x403.jpg",
+      "website": "https://www.wingfest.co.uk",
+      "description": "A celebration of all things wings, bringing together the best wing vendors and enthusiasts."
+    },
+    {
+      "name": "Opheem",
+      "image": "assets/Opheem-Jan46873-600x403.jpg",
+      "website": "https://opheem.com",
+      "description": "Award-winning modern Indian restaurant offering innovative cuisine in Birmingham."
+    },
+    {
+      "name": "Behind",
+      "image": "assets/BEHIND-RESTAURANT-JUNE-2021-@lateef.photography-33-600x403.jpg",
+      "website": "https://www.behindrestaurant.co.uk",
+      "description": "Intimate dining experience with a focus on seasonal ingredients and creative cooking."
+    },
+    {
+      "name": "The Bowls Club London",
+      "image": "assets/RyanDinham_070923_Bowlsclub239-600x403.jpg",
+      "website": "https://www.thebowlsclubldn.com",
+      "description": "A vibrant social space combining great food, drinks, and entertainment in London."
+    },
+    {
+      "name": "Aktar At Home",
+      "image": "assets/Aktar-at-Home-600x403.jpg",
+      "website": "https://aktarathome.co.uk",
+      "description": "Premium home dining experiences bringing restaurant-quality Indian cuisine to your table."
+    },
+    {
+      "name": "Heaneys",
+      "image": "assets/HEANEYS-SELECTS-10-600x403.jpg",
+      "website": "https://www.heaneyscardiff.co.uk",
+      "description": "Contemporary British restaurant in Cardiff, known for innovative dishes and local sourcing."
+    },
+    {
+      "name": "Hackney Bridge",
+      "image": "assets/MS_Harrywinteringham.uk_HR-50-of-300-600x403.jpg",
+      "website": "https://hackneybridge.org",
+      "description": "A dynamic food and drink destination in Hackney, featuring diverse vendors and events."
+    },
+    {
+      "name": "Longboys",
+      "image": "assets/Longboys-600x403.jpg",
+      "website": "https://longboys.co.uk",
+      "description": "Artisan doughnuts and sweet treats, handcrafted with premium ingredients."
+    },
+    {
+      "name": "OAKBERRY",
+      "image": "assets/OAKBERRY-600x403.jpeg",
+      "website": "https://www.oakberry.com/en-GB",
+      "description": "Healthy açai bowls and smoothies, bringing Brazilian flavours to the UK."
+    },
+    {
+      "name": "Vinegar Yard",
+      "image": "assets/Screenshot-2024-03-20-at-14.34.26-600x403.png",
+      "website": "https://www.vinegaryard.london",
+      "description": "A bustling food market and bar in London Bridge, featuring street food and drinks."
+    },
+    {
+      "name": "Polo 24 Hour Bar",
+      "image": "assets/Polo-Bar-600x403.jpg",
+      "website": "https://www.polobar.co.uk/",
+      "description": "London's premier 24-hour bar, serving cocktails and food around the clock."
+    },
+    {
+      "name": "KERB",
+      "image": "assets/KERB-NT-LR-39-600x403.jpg",
+      "website": "https://www.kerbfood.com/",
+      "description": "London's leading street food market, showcasing the best independent food traders."
+    },
+    {
+      "name": "Seoul Bird",
+      "image": "assets/SEOUL-BIRD-JULY-2021-@lateef.photography-95-600x403.jpg",
+      "website": "https://seoul-bird.co.uk/",
+      "description": "Korean fried chicken and modern Korean cuisine in the heart of London."
+    },
+    {
+      "name": "Emilia's Crafted Pasta",
+      "image": "assets/Emilias-600x403.jpg",
+      "website": "https://www.emiliaspasta.com",
+      "description": "Authentic Italian pasta made fresh daily, bringing traditional techniques to modern London."
+    },
+    {
+      "name": "Balans",
+      "image": "assets/Balans-600x403.jpg",
+      "website": "https://balans.co.uk",
+      "description": "All-day dining destination in Soho, known for brunch, cocktails, and vibrant atmosphere."
+    },
+    {
+      "name": "Junsei",
+      "image": "assets/junsei-19-600x403.jpeg",
+      "website": "https://junsei.co.uk",
+      "description": "Authentic yakitori restaurant specialising in Japanese charcoal-grilled skewers."
+    },
+    {
+      "name": "OshPaz",
+      "image": "assets/Screenshot-2024-05-15-at-11.20.56-600x403.png",
+      "website": "https://www.oshpaz.co.uk",
+      "description": "Modern Uzbek restaurant bringing Central Asian flavours to London."
+    }
+  ],
+  "talent": [
+    {
+      "name": "Aktar Islam",
+      "image": "assets/Aktar-Islam-600x403.jpg",
+      "website": "https://www.instagram.com/aktarislam_/?hl=en-gb",
+      "linkType": "Instagram",
+      "description": "Award-winning chef and restaurateur, known for Opheem and innovative modern Indian cuisine."
+    },
+    {
+      "name": "Graham Hornigold",
+      "image": "assets/Graham-profile-scaled-e1698847795160-600x403.jpg",
+      "website": "https://www.instagram.com/ghornigold/?hl=en",
+      "linkType": "Instagram",
+      "description": ""
+    },
+    {
+      "name": "Andy Beynon",
+      "image": "assets/BEHIND-RESTAURANT-JUNE-2021-@lateef.photography-24-600x403.jpg",
+      "website": "https://www.instagram.com/andy.beynon/?hl=en",
+      "linkType": "Instagram",
+      "description": "Chef and restaurateur behind Behind restaurant, focusing on seasonal and sustainable cooking."
+    },
+    {
+      "name": "Judy Joo",
+      "image": "assets/Judy-Joo-by-Emli_Bendixen-1-600x403.jpg",
+      "website": "https://www.judyjoo.com",
+      "linkType": "Website",
+      "description": "Celebrity chef, cookbook author, and TV personality specialising in Korean cuisine."
+    },
+    {
+      "name": "Tommy Heaney",
+      "image": "assets/Tommy-Heanet--600x403.jpg",
+      "website": "https://www.instagram.com/heaneychef/",
+      "linkType": "Instagram",
+      "description": "Welsh chef and restaurateur, known for Heaneys in Cardiff and modern British cooking."
+    }
+  ]
+}
+
+
+
