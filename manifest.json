@@ -1,0 +1,31 @@
+{
+  "name": "Binx & Co PR Ltd",
+  "short_name": "Binx & Co",
+  "description": "Forward-thinking London based communications hub providing PR, marketing and brand consultancy",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#ffffff",
+  "theme_color": "#e8d2d0",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "CroppedIcon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "CroppedIcon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
+
+
+
+
+
+
+
