@@ -3,10 +3,12 @@
   "short_name": "Binx & Co",
   "description": "Forward-thinking London based communications hub providing PR, marketing and brand consultancy",
   "start_url": "/",
+  "scope": "/",
   "display": "browser",
   "background_color": "#ffffff",
   "theme_color": "#e8d2d0",
   "orientation": "portrait-primary",
+  "prefer_related_applications": false,
   "icons": [
     {
       "src": "CroppedIcon.png",
